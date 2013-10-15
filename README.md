@@ -1,6 +1,18 @@
-# Geonames::Api::Client
+# Geonames::API::Client
 
-TODO: Write a gem description
+This gem handles the requests to the geonames.org JSON API. It will raise an
+exception, if the API responds with an error, or if the HTTP GET request fails.
+If the request is successful, it will parse the JSON response and return it as
+a plain old ruby object.
+
+For convenience, it automatically passes the username as query string parameter
+to all requests.
+
+Currently the gem supports the following methods:
+
+- [get](http://www.geonames.org/export/web-services.html#get)
+
+Feel free to add any missing methods and send a pull request!
 
 ## Installation
 
@@ -18,7 +30,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+Geonames::API::Client.config = {
+  'username' => 'your-username',
+  'host' => 'api.geonames.org'
+}
+
+
+Geonames::API::Client.get(123456) # Returns the data for this geonameId
+Geonames::API::Client.get(123456, {'style': 'short'}) # Same, but returns the short version
+```
 
 ## Contributing
 
