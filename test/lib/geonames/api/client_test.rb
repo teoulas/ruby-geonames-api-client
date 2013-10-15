@@ -36,5 +36,12 @@ class ClientTest < Minitest::Test
       Geonames::API::Client.api_request('/error', {})
     }
   end
+
+  def test_get_with_id_only
+    FakeWeb.allow_net_connect = false
+    FakeWeb.register_uri(:get, 'http://example.org/getJSON?username=demo&geonameId=123', {:body => '{"geonames":[]}'})
+    Geonames::API::Client.config = {'host' => 'example.org', 'username' => 'demo'}
+    assert_equal({'geonames' => []}, Geonames::API::Client.get(123))
+  end
 end
 

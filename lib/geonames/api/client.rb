@@ -17,9 +17,7 @@ module Geonames
       end
 
       def self.default_params
-        {
-          'username' => config['username'],
-        }
+        {'username' => config['username']}
       end
 
       def self.api_request(endpoint, params)
