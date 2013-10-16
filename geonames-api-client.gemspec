@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'geonames/api/client/version'
+require 'geonames/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "geonames-api-client"
-  spec.version       = Geonames::API::Client::VERSION
+  spec.version       = Geonames::VERSION
   spec.authors       = ["Theodoros Orfanidis"]
   spec.email         = ["teoulas@gmail.com"]
   spec.description   = %q{Simple client for geonames.org web services}
@@ -22,4 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest", "~> 5.0.8"
   spec.add_development_dependency "fakeweb", "~> 1.3.0"
+
+  spec.add_runtime_dependency "hashie", "~> 2.0.5"
 end

@@ -1,16 +1,15 @@
-# Geonames::API::Client
+# geonames-api-client
 
-This gem handles the requests to the geonames.org JSON API. It will raise an
+This gem is a simple wrapper for the geonames.org JSON API. It will raise an
 exception, if the API responds with an error, or if the HTTP GET request fails.
 If the request is successful, it will parse the JSON response and return it as
-a plain old ruby object.
-
-For convenience, it automatically passes the username as query string parameter
-to all requests.
+a [Hashie::Mash](https://github.com/intridea/hashie#mash) object.
 
 Currently the gem supports the following methods:
 
 - [get](http://www.geonames.org/export/web-services.html#get)
+- [search](http://www.geonames.org/export/geonames-search.html)
+- [timezone](http://www.geonames.org/export/web-services.html#timezone)
 
 Feel free to add any missing methods and send a pull request!
 
@@ -30,16 +29,32 @@ Or install it yourself as:
 
 ## Usage
 
+### Short version
+
+Configure:
 ```
-Geonames::API::Client.config = {
-  'username' => 'your-username',
-  'host' => 'api.geonames.org'
+Geonames.configuration = {
+  :username => 'your-username',
+  :host => 'api.geonames.org'
 }
-
-
-Geonames::API::Client.get(123456) # Returns the data for this geonameId
-Geonames::API::Client.get(123456, {'style': 'short'}) # Same, but returns the short version
 ```
+Make requests:
+```
+Geonames.get(123)
+Geonames.search({:q => 'london'})
+```
+
+### Long version
+
+```
+config = {:username => 'demo'}
+client = Geonames::Client.new(config)
+client.get(123)
+```
+
+The methods are defined on Geonames::Client, but the Geonames module uses
+`method_missing` magic to instantiate a client and call the relevant method
+with the parameters passed.
 
 ## Contributing
 

@@ -4,7 +4,7 @@ require 'rake/testtask'
 
 Rake::TestTask.new do |t|
   t.libs << 'lib/geonames'
-  t.test_files = FileList['test/lib/geonames/**/*_test.rb']
+  t.test_files = FileList['test/geonames/**/*_test.rb']
   t.verbose = true
 end
 
