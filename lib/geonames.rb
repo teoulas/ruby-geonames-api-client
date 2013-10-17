@@ -21,7 +21,7 @@ module Geonames
     end
   end
 
-  def self.respond_to?(method, include_private = false)
+  def self.respond_to_missing?(method, include_private = false)
     if Client::VALID_METHODS.include?(method.to_s)
       true
     else
