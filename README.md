@@ -17,7 +17,7 @@ Feel free to add any missing methods and send a pull request!
 
 Add this line to your application's Gemfile:
 
-    gem 'geonames-api-client'
+    gem 'geonames-api-client', require: 'geonames', git: 'git@github.com:teoulas/ruby-geonames-api-client.git'
 
 And then execute:
 
