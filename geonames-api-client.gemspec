@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["teoulas@gmail.com"]
   spec.description   = %q{Simple client for geonames.org web services}
   spec.summary       = %q{Simple client for geonames.org web services. Supports very few methods, handles errors, returns plain old ruby hashes. Feel free to extend!}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/teoulas/ruby-geonames-api-client"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
