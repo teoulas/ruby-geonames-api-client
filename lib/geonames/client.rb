@@ -4,7 +4,7 @@ require 'hashie'
 
 module Geonames
   class Client
-    VALID_METHODS = %w(get search timezone).freeze
+    VALID_METHODS = %w(get search timezone hierarchy).freeze
 
     def initialize(config)
       @config = Geonames::Configuration.new(config)
@@ -23,6 +23,11 @@ module Geonames
     def timezone(lat, lng, options = {})
       options = Params::Timezone.new(options)
       api_request('/timezoneJSON', {lat: lat, lng: lng}.merge(options))
+    end
+
+    def hierarchy(geoname_id, options = {})
+      options = Params::Base.new(options)
+      api_request('/hierarchyJSON', {geonameId: geoname_id}.merge(options))
     end
 
     def api_request(endpoint, params = {})

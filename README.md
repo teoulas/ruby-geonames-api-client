@@ -8,6 +8,7 @@ a [Hashie::Mash](https://github.com/intridea/hashie#mash) object.
 Currently the gem supports the following methods:
 
 - [get](http://www.geonames.org/export/web-services.html#get)
+- [hierarchy](http://www.geonames.org/export/place-hierarchy.html#hierarchy)
 - [search](http://www.geonames.org/export/geonames-search.html)
 - [timezone](http://www.geonames.org/export/web-services.html#timezone)
 

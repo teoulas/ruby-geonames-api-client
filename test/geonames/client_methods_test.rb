@@ -30,4 +30,9 @@ class ClientMethodsTest < Minitest::Test
     FakeWeb.register_uri(:get, 'http://example.org/timezoneJSON?username=demo&lat=45.5&lng=20.5', {:body => '{"geonames":[]}'})
     assert_equal({'geonames' => []}, @client.timezone(45.5, 20.5))
   end
+
+  def test_hierarchy_with_id
+    FakeWeb.register_uri(:get, 'http://example.org/hierarchyJSON?username=demo&geonameId=123', {:body => '{"geonames":[]}'})
+    assert_equal({'geonames' => []}, @client.hierarchy(123))
+  end
 end
